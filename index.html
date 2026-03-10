@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methodic Ventures — Pitch Deck</title>
+<title>Methodic Ventures — Acquisition Opportunity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -456,6 +456,145 @@ background-size:200% auto;
 background-clip:text;
 animation:shimmer 4s linear infinite;
 }
+
+/* ========== NEW SLIDES ADDITIONS ========== */
+/* Slide 1 confidential tag */
+.confidential-tag{
+position:absolute;top:28px;right:36px;
+font-family:'JetBrains Mono',monospace;font-size:10px;
+letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase;
+}
+/* Slide 2 hero photo */
+.team-hero-photo{
+width:100%;max-height:300px;object-fit:cover;object-position:center 30%;
+border-radius:12px;border:1px solid var(--border);
+transition:transform 0.3s;
+}
+.team-hero-photo:hover{transform:scale(1.01);}
+/* Donut chart */
+.donut-wrap{position:relative;width:160px;height:160px;flex-shrink:0;}
+.donut-ring{
+width:160px;height:160px;border-radius:50%;
+background:conic-gradient(var(--blue) 0% 50%, #2a5075 50% 82%, rgba(137,180,212,0.25) 82% 100%);
+box-shadow:0 4px 24px rgba(137,180,212,0.15);
+}
+.donut-center{
+position:absolute;inset:20px;border-radius:50%;
+background:var(--bg2);display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+border:1px solid var(--border);
+}
+/* Bar chart for financial/growth slides */
+.bar-chart-wrap{display:flex;align-items:flex-end;gap:8px;height:130px;}
+.bar-col{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;}
+.bar-group{display:flex;gap:3px;align-items:flex-end;height:100%;}
+.bar{
+border-radius:4px 4px 0 0;width:100%;min-width:16px;
+transform:scaleY(0);transform-origin:bottom;
+transition:transform 1s cubic-bezier(0.23,1,0.32,1);
+box-shadow:0 2px 8px rgba(137,180,212,0.2);
+}
+.bar.show{transform:scaleY(1);}
+.bar-rev{background:linear-gradient(180deg,var(--blue),var(--blue-dark));}
+.bar-sde{background:linear-gradient(180deg,var(--blue-light),var(--blue));}
+.bar-cf{background:linear-gradient(180deg,#7ec8a0,#4a9a72);}
+.bar-label{font-size:9px;color:var(--muted);letter-spacing:1px;text-align:center;}
+.bar-val{font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--blue-light);text-align:center;}
+/* Timeline phases */
+.timeline-wrap{display:flex;gap:0;position:relative;}
+.timeline-phase{flex:1;padding:20px 16px;position:relative;}
+.timeline-phase::after{
+content:'';position:absolute;top:24px;right:-1px;width:2px;height:40px;
+background:linear-gradient(180deg,var(--blue-dark),transparent);
+}
+.timeline-phase:last-child::after{display:none;}
+.phase-num{
+font-family:'JetBrains Mono',monospace;font-size:10px;
+color:var(--blue);letter-spacing:2px;margin-bottom:8px;font-weight:500;
+}
+.phase-title{
+font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;margin-bottom:12px;
+}
+.timeline-connector{
+height:2px;background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+transform:scaleX(0);transform-origin:left;
+transition:transform 1.2s 0.5s cubic-bezier(0.23,1,0.32,1);
+border-radius:1px;margin:12px 0;
+}
+.timeline-connector.show{transform:scaleX(1);}
+/* 3D card */
+.card-3d{
+transform-style:preserve-3d;
+box-shadow:0 8px 32px rgba(0,0,0,0.35),0 2px 0 rgba(137,180,212,0.1),inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.card-3d:hover{transform:translateY(-5px) rotateX(2deg);}
+/* Waterfall / return viz */
+.waterfall-strip{
+display:flex;gap:0;border-radius:8px;overflow:hidden;height:56px;
+border:1px solid var(--border);
+}
+.wf-phase{
+display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;
+transition:flex 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+.wf-phase-1{flex:7;background:linear-gradient(135deg,rgba(74,127,168,0.35),rgba(137,180,212,0.2));}
+.wf-phase-2{flex:3;background:linear-gradient(135deg,rgba(137,180,212,0.15),rgba(197,220,240,0.1));}
+.wf-label{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.wf-pct{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--blue-light);}
+/* Gap/opportunity cols */
+.gap-col{flex:1;}
+.gap-item{
+display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:8px;margin-bottom:6px;
+background:var(--bg2);border:1px solid var(--border);
+font-size:12px;line-height:1.5;font-weight:300;color:var(--muted);
+transition:border-color 0.3s,transform 0.3s;
+}
+.gap-item:hover{border-color:var(--border-h);transform:translateX(2px);}
+.gap-icon-x{color:#e06b6b;font-size:14px;flex-shrink:0;font-weight:700;}
+.gap-icon-check{color:#7ec8a0;font-size:14px;flex-shrink:0;font-weight:700;}
+/* Payback arc */
+.payback-arc-wrap{position:relative;width:80px;height:80px;margin:0 auto 8px;}
+.payback-arc{
+width:80px;height:80px;border-radius:50%;
+background:conic-gradient(var(--blue) 0% 82%, var(--bg3) 82% 100%);
+transition:background 1.5s ease;
+}
+.payback-arc-center{
+position:absolute;inset:12px;border-radius:50%;
+background:var(--bg2);display:flex;align-items:center;justify-content:center;
+font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--blue-light);
+}
+/* Location badge */
+.location-badge{
+display:inline-flex;align-items:center;gap:8px;
+padding:8px 20px;border-radius:20px;
+background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);
+font-size:12px;color:var(--blue-light);font-weight:500;
+margin-bottom:20px;letter-spacing:0.5px;
+}
+/* Assumption pill */
+.assumption-pill{
+display:inline-flex;flex-direction:column;align-items:center;
+padding:8px 14px;border-radius:8px;
+background:var(--bg2);border:1px solid var(--border);
+font-size:11px;font-weight:300;color:var(--muted);
+}
+.assumption-pill .yr{
+font-family:'JetBrains Mono',monospace;font-size:10px;
+color:var(--blue);letter-spacing:1px;margin-bottom:2px;
+}
+/* Risk card */
+.risk-card{padding:22px;}
+.risk-icon{
+width:40px;height:40px;border-radius:10px;
+background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);
+display:flex;align-items:center;justify-content:center;
+margin-bottom:14px;color:var(--blue);
+}
+/* Split rev bar */
+.split-bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-top:6px;}
+.split-seg-1{background:linear-gradient(90deg,var(--blue-dark),var(--blue));transition:width 1s cubic-bezier(0.23,1,0.32,1);width:0;}
+.split-seg-2{background:rgba(137,180,212,0.2);transition:width 1s cubic-bezier(0.23,1,0.32,1);width:0;}
 </style>
 </head>
 <body>
@@ -482,7 +621,7 @@ animation:shimmer 4s linear infinite;
 <div class="slide-counter">
 <span class="current" id="counterCurrent">01</span>
 <span> / </span>
-<span id="counterTotal">11</span>
+<span id="counterTotal">13</span>
 </div>
 
 <!-- Nav arrows -->
@@ -497,8 +636,10 @@ animation:shimmer 4s linear infinite;
 <div class="slides-wrapper">
 
 <!-- SLIDE 1: Title -->
-<div class="slide active" data-slide="0">
+<div class="slide active" data-slide="0" style="position:relative">
+<span class="confidential-tag reveal" style="transition-delay:0.7s">Confidential</span>
 <img class="title-chevron reveal-scale" id="titleChevron" src="" alt="Methodic">
+<div class="label reveal" style="transition-delay:0.1s;justify-content:center;margin-bottom:10px">Acquisition Opportunity</div>
 <h1 class="headline title-h1 reveal" style="transition-delay:0.15s">
 <span class="hl">METHODIC</span> VENTURES
 </h1>
@@ -514,27 +655,14 @@ animation:shimmer 4s linear infinite;
 <h2 class="headline reveal" style="font-size:42px;margin-bottom:8px;transition-delay:0.1s">
 THE <span class="hl">TEAM</span>
 </h2>
-<p class="sub-text reveal" style="font-size:16px;margin-bottom:8px;transition-delay:0.15s;color:var(--text);font-weight:400">
+<p class="sub-text reveal" style="font-size:16px;margin-bottom:16px;transition-delay:0.15s;color:var(--text);font-weight:400">
 Founding Partners
 </p>
-<div class="grid-3" style="margin-bottom:24px">
-<div class="card team-card reveal-scale" style="transition-delay:0.25s">
-<img class="team-photo" data-photo="gavin" src="" alt="Gavin Mestler">
-<div class="team-name">Gavin Mestler</div>
-<div class="team-role">Managing Partner<br>& Co-Founder</div>
+<div class="reveal-scale" style="transition-delay:0.25s;margin-bottom:14px">
+<img src="Methodic Team Photo2.jpeg" class="team-hero-photo" alt="Logan Mestler, Gavin Mestler & Dean Farber">
 </div>
-<div class="card team-card reveal-scale" style="transition-delay:0.35s">
-<img class="team-photo" data-photo="logan" src="" alt="Logan Mestler">
-<div class="team-name">Logan Mestler</div>
-<div class="team-role">Managing Partner<br>& Co-Founder</div>
-</div>
-<div class="card team-card reveal-scale" style="transition-delay:0.45s">
-<img class="team-photo" data-photo="dean" src="" alt="Dean Farber">
-<div class="team-name">Dean Farber</div>
-<div class="team-role">Managing Partner<br>& Co-Founder</div>
-</div>
-</div>
-<div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap" class="reveal" style="transition-delay:0.55s">
+<p class="reveal" style="transition-delay:0.35s;text-align:center;font-size:14px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;font-weight:300">Logan Mestler &nbsp;&middot;&nbsp; Gavin Mestler &nbsp;&middot;&nbsp; Dean Farber</p>
+<div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap" class="reveal" style="transition-delay:0.45s">
 <div style="padding:12px 28px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-align:center">
 <div style="font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--blue-light)">9</div>
 <div style="font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px">Entrepreneurs</div>
@@ -646,376 +774,575 @@ An elite entrepreneurship community at Babson College. Alumni have built compani
 </div>
 </div>
 
-<!-- SLIDE 4: The Opportunity -->
+<!-- SLIDE 4: The Deal -->
 <div class="slide" data-slide="3">
 <div class="slide-inner">
-<div class="label reveal">The Opportunity</div>
-<h2 class="headline reveal" style="font-size:36px;margin-bottom:32px;transition-delay:0.1s">
-The Greatest <span class="hl">Wealth Transfer</span> in History
+<div class="label reveal">The Deal</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:6px;transition-delay:0.1s">
+Established <span class="hl">Landscaping</span> Business
 </h2>
-<div class="grid-2">
-<div class="card stat-card reveal-scale" style="transition-delay:0.2s">
-<div class="stat-number"><span class="counter" data-target="51">0</span>%</div>
-<div class="stat-label">of U.S. businesses are owned<br>by baby boomers</div>
+<div class="location-badge reveal" style="transition-delay:0.15s">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+Hanover, MA &nbsp;&middot;&nbsp; South Shore Boston &nbsp;&middot;&nbsp; Est. 2005 &nbsp;&middot;&nbsp; 20 Years in Operation
 </div>
-<div class="card stat-card reveal-scale" style="transition-delay:0.3s">
-<div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
-<div class="stat-label">will reach retirement age<br>within 6 years</div>
+<div class="grid-2" style="margin-bottom:16px">
+<div class="card card-3d pillar-card reveal-scale" style="transition-delay:0.2s">
+<div class="pillar-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
 </div>
-<div class="card stat-card reveal-scale" style="transition-delay:0.4s">
-<div class="stat-number"><span class="counter" data-target="85">0</span>%</div>
-<div class="stat-label">have no formal<br>transition plan</div>
+<h4>Full-Service Landscaping</h4>
+<p>Hardscape construction, plantings, sod installation, landscape design, and seasonal maintenance across Boston's South Shore</p>
 </div>
-<div class="card stat-card reveal-scale" style="transition-delay:0.5s">
-<div class="stat-number"><span class="counter" data-target="70">0</span>%</div>
-<div class="stat-label">of businesses listed<br>never find a buyer</div>
+<div class="card card-3d pillar-card reveal-scale" style="transition-delay:0.28s">
+<div class="pillar-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+</div>
+<h4>Recurring Revenue Base</h4>
+<p>5 maintenance crews serving 80–100 customers monthly. <span style="color:var(--blue-light);font-weight:500">$30K–$40K/month</span> in recurring maintenance revenue year-round</p>
+</div>
+<div class="card card-3d pillar-card reveal-scale" style="transition-delay:0.36s">
+<div class="pillar-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+</div>
+<h4>Commercial Snow Removal</h4>
+<p>Contracted snow removal for office parks and institutional clients provides reliable winter revenue floor</p>
+</div>
+<div class="card card-3d pillar-card reveal-scale" style="transition-delay:0.44s">
+<div class="pillar-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+</div>
+<h4>Equipment Fleet</h4>
+<p>Substantial fleet of trucks, excavators, skid steers, and specialized equipment included. <span style="color:var(--blue-light);font-weight:500">$1.5M in fleet value</span></p>
+</div>
+</div>
+<div class="card reveal" style="transition-delay:0.54s;padding:14px 24px">
+<div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-size:12px;color:var(--muted)">
+<span><span style="color:var(--blue-light);font-weight:500">S-Corp</span> &nbsp;&middot;&nbsp; Not a Franchise &nbsp;&middot;&nbsp; 3–5 Year-Round / 22–25 Peak Season &nbsp;&middot;&nbsp; No Special Licenses Required</span>
 </div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 5: Target Sectors -->
+<!-- SLIDE 5: Financial Highlights -->
 <div class="slide" data-slide="4">
 <div class="slide-inner">
-<div class="label reveal">Target Sectors</div>
-<h2 class="headline reveal" style="font-size:42px;margin-bottom:28px;transition-delay:0.1s">
-TARGET <span class="hl">SECTORS</span>
+<div class="label reveal">Financial Highlights</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:8px;transition-delay:0.1s">
+Three-Year <span class="hl">Track Record</span>
 </h2>
-<div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:28px">
-<div class="card reveal-scale" style="transition-delay:0.2s;padding:24px 20px;text-align:center;width:160px">
-<div style="margin:0 auto 12px;width:48px;height:48px;border-radius:50%;background:rgba(137,180,212,0.1);display:flex;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+<div style="display:flex;gap:16px;justify-content:center;margin-bottom:20px;flex-wrap:wrap" class="reveal" style="transition-delay:0.15s">
+<div class="card stat-card reveal-scale" style="transition-delay:0.15s;padding:20px 28px;flex:1;min-width:120px">
+<div class="stat-number" style="font-size:36px">$<span class="counter" data-target="2.5" data-decimals="1">0</span>M</div>
+<div class="stat-label">2025 Revenue</div>
 </div>
-<div style="font-weight:600;font-size:14px;margin-bottom:6px">Roofing</div>
-<div style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.5">Consistent demand, high-ticket revenue</div>
+<div class="card stat-card reveal-scale" style="transition-delay:0.23s;padding:20px 28px;flex:1;min-width:120px">
+<div class="stat-number" style="font-size:36px">$<span class="counter" data-target="630" data-decimals="0">0</span>K</div>
+<div class="stat-label">2025 Recast SDE</div>
 </div>
-<div class="card reveal-scale" style="transition-delay:0.25s;padding:24px 20px;text-align:center;width:160px">
-<div style="margin:0 auto 12px;width:48px;height:48px;border-radius:50%;background:rgba(137,180,212,0.1);display:flex;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-</div>
-<div style="font-weight:600;font-size:14px;margin-bottom:6px">Pest Control</div>
-<div style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.5">Subscription models with high retention</div>
-</div>
-<div class="card reveal-scale" style="transition-delay:0.3s;padding:24px 20px;text-align:center;width:160px">
-<div style="margin:0 auto 12px;width:48px;height:48px;border-radius:50%;background:rgba(137,180,212,0.1);display:flex;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-</div>
-<div style="font-weight:600;font-size:14px;margin-bottom:6px">HVAC & Plumbing</div>
-<div style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.5">Essential, steady cashflow</div>
-</div>
-<div class="card reveal-scale" style="transition-delay:0.35s;padding:24px 20px;text-align:center;width:160px">
-<div style="margin:0 auto 12px;width:48px;height:48px;border-radius:50%;background:rgba(137,180,212,0.1);display:flex;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-</div>
-<div style="font-weight:600;font-size:14px;margin-bottom:6px">Restoration</div>
-<div style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.5">Insurance-paid work with consistent demand</div>
-</div>
-<div class="card reveal-scale" style="transition-delay:0.4s;padding:24px 20px;text-align:center;width:160px">
-<div style="margin:0 auto 12px;width:48px;height:48px;border-radius:50%;background:rgba(137,180,212,0.1);display:flex;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
-</div>
-<div style="font-weight:600;font-size:14px;margin-bottom:6px">Landscaping</div>
-<div style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.5">Contract-based recurring revenue</div>
+<div class="card stat-card reveal-scale" style="transition-delay:0.31s;padding:20px 28px;flex:1;min-width:120px">
+<div class="stat-number" style="font-size:36px"><span class="counter" data-target="25.2" data-decimals="1">0</span>%</div>
+<div class="stat-label">SDE Margin</div>
 </div>
 </div>
-<div class="card reveal" style="transition-delay:0.5s;padding:20px 28px;">
-<p style="font-size:12px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Geographic Focus</p>
-<p style="font-size:14px;font-weight:400;line-height:1.6">New England: Massachusetts, Connecticut, New Hampshire, Rhode Island, Maine, Vermont</p>
-<p style="font-size:12px;color:var(--muted);font-weight:300;font-style:italic;margin-top:6px">Enables hands-on oversight and relationship-based deal sourcing</p>
+<div class="grid-2" style="align-items:start;gap:20px">
+<div class="card card-3d reveal-left" style="transition-delay:0.2s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">3-Year Financials ($K)</p>
+<div class="bar-chart-wrap" id="finChart">
+<div class="bar-col">
+<div class="bar-group">
+<div class="bar bar-rev" id="rev23" style="height:0" data-h="95"></div>
+<div class="bar bar-sde" id="sde23" style="height:0" data-h="29.8"></div>
+</div>
+<div class="bar-label">2023</div>
+</div>
+<div class="bar-col">
+<div class="bar-group">
+<div class="bar bar-rev" id="rev24" style="height:0" data-h="91.6"></div>
+<div class="bar bar-sde" id="sde24" style="height:0" data-h="26.5"></div>
+</div>
+<div class="bar-label">2024</div>
+</div>
+<div class="bar-col">
+<div class="bar-group">
+<div class="bar bar-rev" id="rev25" style="height:0" data-h="95.4"></div>
+<div class="bar bar-sde" id="sde25" style="height:0" data-h="24.1"></div>
+</div>
+<div class="bar-label">2025</div>
+</div>
+</div>
+<div style="display:flex;gap:16px;margin-top:12px">
+<div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)"><div style="width:10px;height:10px;border-radius:2px;background:var(--blue)"></div>Revenue</div>
+<div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)"><div style="width:10px;height:10px;border-radius:2px;background:var(--blue-light)"></div>SDE</div>
+</div>
+</div>
+<div class="card card-3d reveal-right" style="transition-delay:0.3s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">Revenue Mix</p>
+<div style="margin-bottom:16px">
+<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px">
+<span style="color:var(--muted)">Project-Based</span><span style="font-family:'JetBrains Mono',monospace;color:var(--blue-light)">70%</span>
+</div>
+<div class="split-bar" id="splitBar1"><div class="split-seg-1" id="seg1" style="width:0"></div><div class="split-seg-2" id="seg1b" style="width:0"></div></div>
+<p style="font-size:10px;color:var(--muted);margin-top:4px;font-style:italic">Hardscape, plantings, sod installation</p>
+</div>
+<div style="margin-bottom:16px">
+<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px">
+<span style="color:var(--muted)">Recurring Maintenance</span><span style="font-family:'JetBrains Mono',monospace;color:var(--blue-light)">30%</span>
+</div>
+<div class="split-bar"><div class="split-seg-1" id="seg2" style="width:0"></div><div class="split-seg-2" id="seg2b" style="width:0"></div></div>
+<p style="font-size:10px;color:var(--muted);margin-top:4px;font-style:italic">+ Commercial snow removal contracts</p>
+</div>
+<div style="padding:12px;background:rgba(137,180,212,0.06);border:1px solid rgba(137,180,212,0.12);border-radius:8px;margin-top:8px">
+<p style="font-size:11px;color:var(--blue-light);font-weight:500;margin-bottom:2px">Growth Opportunity</p>
+<p style="font-size:11px;color:var(--muted);font-weight:300">Target: Grow recurring to 50%+ by Year 2 through systematic maintenance conversion</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 6: Investment Thesis -->
+<!-- SLIDE 6: Operational Stability -->
 <div class="slide" data-slide="5">
 <div class="slide-inner">
-<div class="label reveal">Investment Thesis</div>
-<h2 class="headline reveal" style="font-size:42px;margin-bottom:6px;transition-delay:0.1s">
-INVESTMENT <span class="hl">THESIS</span>
+<div class="label reveal">Operational Stability</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:6px;transition-delay:0.1s">
+Dedicated Operator <span class="hl">+</span> Methodic Backend
 </h2>
-<p class="sub-text reveal" style="margin-bottom:28px;transition-delay:0.15s;font-style:italic;font-size:16px">Why Essential Services</p>
-<div class="grid-3">
-<div class="card pillar-card reveal" style="transition-delay:0.2s">
-<h4>Non-Discretionary</h4>
-<p>Must-have services regardless of economic conditions</p>
+<p class="sub-text reveal" style="margin-bottom:24px;transition-delay:0.15s;font-style:italic;font-size:15px">A dual-structure built for Day 1 stability</p>
+<div class="grid-2" style="margin-bottom:16px;align-items:start">
+<div class="card card-3d reveal-left" style="transition-delay:0.2s;padding:28px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue-dark),var(--blue));display:flex;align-items:center;justify-content:center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
 </div>
-<div class="card pillar-card reveal" style="transition-delay:0.25s">
-<h4>Recession Resilient</h4>
-<p>Maintained demand through 2008 and 2020</p>
+<div>
+<div style="font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700">On-Site Operator</div>
+<div style="font-size:11px;color:var(--muted)">Hired from Day One</div>
 </div>
-<div class="card pillar-card reveal" style="transition-delay:0.3s">
-<h4>AI Resistant</h4>
-<p>Physical, on-site work cannot be automated</p>
 </div>
-<div class="card pillar-card reveal" style="transition-delay:0.35s">
-<h4>Recurring Revenue</h4>
-<p>Inspection cycles, maintenance contracts, compliance</p>
+<div style="display:flex;gap:12px;margin-bottom:16px">
+<div style="flex:1;text-align:center;padding:12px 8px;background:rgba(137,180,212,0.06);border:1px solid rgba(137,180,212,0.12);border-radius:8px">
+<div style="font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--blue-light)">$100K+</div>
+<div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px">Base Salary</div>
 </div>
-<div class="card pillar-card reveal" style="transition-delay:0.4s">
-<h4>Fragmented Markets</h4>
-<p>Dominated by small, independent operators</p>
+<div style="flex:1;text-align:center;padding:12px 8px;background:rgba(137,180,212,0.06);border:1px solid rgba(137,180,212,0.12);border-radius:8px">
+<div style="font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--blue-light)">5%</div>
+<div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px">Profit Share</div>
 </div>
-<div class="card pillar-card reveal" style="transition-delay:0.45s">
-<h4>Modernization Upside</h4>
-<p>Minimal digital marketing and automation yet still profitable</p>
 </div>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.9;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Estimating & crew scheduling</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Client relationship management</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Project oversight & quality control</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Day-to-day field operations</li>
+</ul>
+</div>
+<div class="card card-3d reveal-right" style="transition-delay:0.3s;padding:28px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue-dark),var(--blue));display:flex;align-items:center;justify-content:center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+</div>
+<div>
+<div style="font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700">Methodic Backend</div>
+<div style="font-size:11px;color:var(--muted)">Remote Operations Team</div>
+</div>
+</div>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.9;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Digital marketing & lead generation</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>AI systems & automation</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Operations & process optimization</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Financial oversight & investor reporting</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Strategic growth planning & pricing</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>CRM, scheduling, and technology stack</li>
+</ul>
+</div>
+</div>
+<div class="card reveal" style="transition-delay:0.45s;padding:16px 24px;text-align:center">
+<p style="font-size:13px;font-style:italic;color:var(--muted);font-weight:300;line-height:1.6">"This dual structure ensures experienced leadership on-site and a full team of operators behind it — scaling systems, marketing, and efficiency from day one."</p>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 7: Our Approach -->
+<!-- SLIDE 7: Deal Structure -->
 <div class="slide" data-slide="6">
 <div class="slide-inner">
-<div class="label reveal">Our Approach</div>
-<h2 class="headline reveal" style="font-size:42px;margin-bottom:6px;transition-delay:0.1s">
-OUR <span class="hl">APPROACH</span>
+<div class="label reveal">Deal Structure</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:24px;transition-delay:0.1s">
+Sources <span class="hl">&amp;</span> Uses of Capital
 </h2>
-<p class="sub-text reveal" style="margin-bottom:32px;transition-delay:0.15s;font-style:italic;font-size:16px">Not Your Typical Private Equity Firm</p>
-<div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
-<div class="card reveal-left" style="transition-delay:0.2s;padding:22px 28px;display:flex;align-items:flex-start;gap:16px">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+<div class="grid-3" style="margin-bottom:20px">
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.2s;padding:20px">
+<div class="stat-number" style="font-size:30px">$2.2M</div>
+<div class="stat-label">Purchase Price</div>
+</div>
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.28s;padding:20px">
+<div class="stat-number" style="font-size:30px">$125K</div>
+<div class="stat-label">Transaction Costs</div>
+</div>
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.36s;padding:20px">
+<div class="stat-number" style="font-size:30px">$125K</div>
+<div class="stat-label">Working Capital</div>
+</div>
+</div>
+<div class="grid-2" style="align-items:start;gap:20px">
+<div class="card card-3d reveal-left" style="transition-delay:0.3s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px">Sources of Capital</p>
+<div style="display:flex;align-items:center;gap:20px">
+<div class="donut-wrap reveal-scale" style="transition-delay:0.4s">
+<div class="donut-ring"></div>
+<div class="donut-center">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-align:center;line-height:1.4">$2.45M<br><span style="color:var(--dim);font-size:9px">total</span></div>
+</div>
+</div>
+<div style="flex:1">
+<div style="margin-bottom:12px">
+<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+<span style="color:var(--muted)">Loan</span><span style="font-family:'JetBrains Mono',monospace;color:var(--blue-light)">50% · $1.225M</span>
+</div>
+<div class="econ-bar"><div class="econ-fill" data-width="50"></div></div>
+</div>
+<div style="margin-bottom:12px">
+<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+<span style="color:var(--muted)">Co-Investor Equity</span><span style="font-family:'JetBrains Mono',monospace;color:var(--blue-light)">32% · $785K</span>
+</div>
+<div class="econ-bar"><div class="econ-fill" data-width="32"></div></div>
 </div>
 <div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;margin-bottom:4px">Permanent Ownership</h4>
-<p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">No fixed exit timeline. Built around long-term value creation.</p>
+<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+<span style="color:var(--muted)">Seller Rollover (20%)</span><span style="font-family:'JetBrains Mono',monospace;color:var(--blue-light)">18% · $440K</span>
+</div>
+<div class="econ-bar"><div class="econ-fill" data-width="18"></div></div>
 </div>
 </div>
-<div class="card reveal-left" style="transition-delay:0.3s;padding:22px 28px;display:flex;align-items:flex-start;gap:16px">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-</div>
-<div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;margin-bottom:4px">Legacy Preservation</h4>
-<p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">Maintain what works while thoughtfully modernizing for the future.</p>
 </div>
 </div>
-<div class="card reveal-left" style="transition-delay:0.4s;padding:22px 28px;display:flex;align-items:flex-start;gap:16px">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+<div class="card card-3d reveal-right" style="transition-delay:0.35s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">Loan Terms</p>
+<div class="criteria-row">
+<span class="criteria-key">Term</span>
+<span class="criteria-val">10 Years</span>
 </div>
-<div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;margin-bottom:4px">Operational Excellence</h4>
-<p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">Hands-on experience in operations, marketing, AI systems, and scaling.</p>
+<div class="criteria-row">
+<span class="criteria-key">Interest Rate</span>
+<span class="criteria-val">10.5%</span>
 </div>
+<div class="criteria-row">
+<span class="criteria-key">Annual Debt Service</span>
+<span class="criteria-val">$203,665</span>
 </div>
-<div class="card reveal-left" style="transition-delay:0.5s;padding:22px 28px;display:flex;align-items:flex-start;gap:16px">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center;margin-top:2px">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+<div class="criteria-row">
+<span class="criteria-key">Seller Payoff Year</span>
+<span class="criteria-val">~Year 6</span>
 </div>
-<div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;margin-bottom:4px">Disciplined Criteria</h4>
-<p style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">Essential service businesses. $500K–1,500,000 EBITDA, max 4x multiple.</p>
+<div style="margin-top:16px;padding:12px;background:rgba(137,180,212,0.06);border:1px solid rgba(137,180,212,0.12);border-radius:8px">
+<p style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.6">Seller invests alongside co-investors and receives distributions until paid off at ~Year 6, aligning seller incentives through the critical growth period.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 8: Acquisition Criteria -->
+<!-- SLIDE 8: Growth Projections -->
 <div class="slide" data-slide="7">
 <div class="slide-inner">
-<div class="label reveal">Acquisition Criteria</div>
-<h2 class="headline reveal" style="font-size:36px;margin-bottom:32px;transition-delay:0.1s">
-What We <span class="hl">Look For</span>
+<div class="label reveal">Growth Projections</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:6px;transition-delay:0.1s">
+Conservative <span class="hl">Five-Year</span> Assumptions
 </h2>
-<div class="grid-2" style="align-items:start">
-<div class="card reveal-left" style="transition-delay:0.2s;padding:32px">
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;margin-bottom:24px;font-weight:700">Deal Parameters</h4>
-<div class="criteria-row">
-<span class="criteria-key">Asking Price</span>
-<span class="criteria-val">$1.5M – $5.25M</span>
+<p class="sub-text reveal" style="margin-bottom:20px;transition-delay:0.15s;font-style:italic;font-size:14px">All values in thousands ($K) &nbsp;&middot;&nbsp; Operator salary already deducted from Cash Flow</p>
+<div class="grid-2" style="align-items:start;gap:20px;margin-bottom:16px">
+<div class="card card-3d reveal-left" style="transition-delay:0.2s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">Revenue ($K)</p>
+<div class="bar-chart-wrap" style="height:120px;margin-bottom:12px">
+<div class="bar-col">
+<div class="bar-val">$2,375</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-rev" data-h="77" style="height:0"></div></div>
+<div class="bar-label">Y1</div>
 </div>
-<div class="criteria-row">
-<span class="criteria-key">EBITDA Range</span>
-<span class="criteria-val">$500K – $1,500,000</span>
+<div class="bar-col">
+<div class="bar-val">$2,613</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-rev" data-h="85" style="height:0"></div></div>
+<div class="bar-label">Y2</div>
 </div>
-<div class="criteria-row">
-<span class="criteria-key">Maximum Multiple</span>
-<span class="criteria-val">4x EBITDA</span>
+<div class="bar-col">
+<div class="bar-val">$2,744</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-rev" data-h="89" style="height:0"></div></div>
+<div class="bar-label">Y3</div>
 </div>
-<div class="criteria-row">
-<span class="criteria-key">Business Age</span>
-<span class="criteria-val">5+ Years</span>
+<div class="bar-col">
+<div class="bar-val">$2,881</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-rev" data-h="93" style="height:0"></div></div>
+<div class="bar-label">Y4</div>
 </div>
-<div class="criteria-row">
-<span class="criteria-key">Geography</span>
-<span class="criteria-val">New England</span>
-</div>
-<div class="criteria-row">
-<span class="criteria-key">Structure</span>
-<span class="criteria-val">Independent Only</span>
-</div>
-</div>
-<div class="card reveal-right" style="transition-delay:0.35s;padding:32px">
-<h4 style="font-family:'Libre Baskerville',serif;font-size:16px;margin-bottom:24px;font-weight:700">Why This <span class="hl">Sweet Spot</span></h4>
-<p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300">
-Too small for traditional private equity.<br>Lower entry multiples.<br>Prime for operational and technology-driven growth.
-</p>
-<div style="margin-top:20px;padding:16px;background:rgba(137,180,212,0.06);border-radius:10px;border:1px solid rgba(137,180,212,0.12)">
-<p style="font-size:11px;color:var(--blue-light);font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">No Franchises</p>
-<p style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6">We only acquire independently-owned businesses with full operational control.</p>
+<div class="bar-col">
+<div class="bar-val">$3,025</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-rev" data-h="100" style="height:0"></div></div>
+<div class="bar-label">Y5</div>
 </div>
 </div>
+</div>
+<div class="card card-3d reveal-right" style="transition-delay:0.3s;padding:24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">Cash Flow ($K)</p>
+<div class="bar-chart-wrap" style="height:120px;margin-bottom:12px">
+<div class="bar-col">
+<div class="bar-val">$530K</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-cf" data-h="59" style="height:0"></div></div>
+<div class="bar-label">Y1</div>
+</div>
+<div class="bar-col">
+<div class="bar-val">$583K</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-cf" data-h="65" style="height:0"></div></div>
+<div class="bar-label">Y2</div>
+</div>
+<div class="bar-col">
+<div class="bar-val">$612K</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-cf" data-h="68" style="height:0"></div></div>
+<div class="bar-label">Y3</div>
+</div>
+<div class="bar-col">
+<div class="bar-val">$643K</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-cf" data-h="72" style="height:0"></div></div>
+<div class="bar-label">Y4</div>
+</div>
+<div class="bar-col">
+<div class="bar-val">$895K</div>
+<div class="bar-group" style="height:80px"><div class="bar bar-cf" data-h="100" style="height:0"></div></div>
+<div class="bar-label">Y5</div>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal" style="transition-delay:0.45s;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+<div class="assumption-pill"><span class="yr">Year 1</span>&minus;5% Transition</div>
+<div class="assumption-pill"><span class="yr">Year 2</span>+10% Stabilize</div>
+<div class="assumption-pill"><span class="yr">Year 3</span>+5% Systems</div>
+<div class="assumption-pill"><span class="yr">Year 4</span>+5% Expand</div>
+<div class="assumption-pill"><span class="yr">Year 5</span>+5% Playbook</div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 9: Value Creation -->
+<!-- SLIDE 9: Co-Investor Returns -->
 <div class="slide" data-slide="8">
 <div class="slide-inner">
-<div class="label reveal">Value Creation Strategy</div>
+<div class="label reveal">Co-Investor Returns</div>
 <h2 class="headline reveal" style="font-size:38px;margin-bottom:6px;transition-delay:0.1s">
-VALUE CREATION <span class="hl">STRATEGY</span>
+Projected <span class="hl">Return Profile</span>
 </h2>
-<p class="sub-text reveal" style="margin-bottom:28px;transition-delay:0.15s;font-style:italic;font-size:15px">Four Pillars of Post-Acquisition Growth</p>
-<div class="grid-4">
-<div class="card reveal-scale" style="transition-delay:0.2s;padding:0;overflow:hidden">
-<div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1px">01</div>
-<div style="padding:20px 16px">
-<div style="margin:0 auto 12px;width:40px;height:40px;border-radius:10px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+<p class="sub-text reveal" style="margin-bottom:20px;transition-delay:0.15s;font-style:italic;font-size:14px">Based on $530K Year 1 cash flow after $100K+ operator salary · conservative growth assumptions</p>
+<div class="grid-3" style="margin-bottom:16px">
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.2s;padding:24px 16px">
+<div class="stat-number" style="font-size:42px"><span class="counter" data-target="29.4" data-decimals="1">0</span>%</div>
+<div class="stat-label">5-Year IRR</div>
 </div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;margin-bottom:10px">Digital Marketing</h4>
-<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>SEO & local search</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Paid advertising</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Review management</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Marketing performance tracking</li>
-</ul>
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.28s;padding:24px 16px">
+<div class="payback-arc-wrap">
+<div class="payback-arc"></div>
+<div class="payback-arc-center">5.8yr</div>
 </div>
+<div class="stat-number" style="font-size:28px;margin-bottom:4px">~5.8</div>
+<div class="stat-label">Payback Period (Yrs)</div>
 </div>
-<div class="card reveal-scale" style="transition-delay:0.3s;padding:0;overflow:hidden">
-<div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1px">02</div>
-<div style="padding:20px 16px">
-<div style="margin:0 auto 12px;width:40px;height:40px;border-radius:10px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
-</div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;margin-bottom:10px">AI Automation</h4>
-<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Automated scheduling</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>AI voice agents</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>CRM integration</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>8–15 hrs/week saved</li>
-</ul>
+<div class="card stat-card card-3d reveal-scale" style="transition-delay:0.36s;padding:24px 16px">
+<div class="stat-number" style="font-size:42px"><span class="counter" data-target="22" data-decimals="0">0</span>%+</div>
+<div class="stat-label">Post-Payback Annual Yield</div>
 </div>
 </div>
-<div class="card reveal-scale" style="transition-delay:0.4s;padding:0;overflow:hidden">
-<div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1px">03</div>
-<div style="padding:20px 16px">
-<div style="margin:0 auto 12px;width:40px;height:40px;border-radius:10px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+<div class="card card-3d reveal" style="transition-delay:0.35s;padding:20px 24px;margin-bottom:16px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Cash Flow Distribution Structure</p>
+<div class="waterfall-strip">
+<div class="wf-phase wf-phase-1">
+<div class="wf-pct">70%</div>
+<div class="wf-label">Pre-Payback</div>
 </div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;margin-bottom:10px">Pricing Optimization</h4>
-<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Market analysis</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Value-based pricing</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Recurring contracts</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Service expansion</li>
-</ul>
+<div style="width:2px;background:var(--bg3);flex-shrink:0"></div>
+<div class="wf-phase wf-phase-2">
+<div class="wf-pct">40%</div>
+<div class="wf-label">Post-Payback</div>
 </div>
 </div>
-<div class="card reveal-scale" style="transition-delay:0.5s;padding:0;overflow:hidden">
-<div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1px">04</div>
-<div style="padding:20px 16px">
-<div style="margin:0 auto 12px;width:40px;height:40px;border-radius:10px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);display:flex;align-items:center;justify-content:center">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+<p style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center;font-weight:300">Co-Investor Share of Distributions</p>
 </div>
-<h4 style="font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;margin-bottom:10px">Efficient Back Office</h4>
-<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Standardized processes</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Back office efficiency</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Shared services</li>
-<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Quality control</li>
-</ul>
+<div class="grid-2" style="gap:16px">
+<div class="card card-3d reveal-left" style="transition-delay:0.4s;padding:20px 24px">
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Key Terms</p>
+<div class="criteria-row" style="padding:10px 0">
+<span class="criteria-key">Preferred Return</span>
+<span class="criteria-val">8%</span>
+</div>
+<div class="criteria-row" style="padding:10px 0">
+<span class="criteria-key">Co-Investor Share (Pre)</span>
+<span class="criteria-val">70%</span>
+</div>
+<div class="criteria-row" style="padding:10px 0">
+<span class="criteria-key">Co-Investor Share (Post)</span>
+<span class="criteria-val">40%</span>
+</div>
+<div class="criteria-row" style="padding:10px 0;border-bottom:none">
+<span class="criteria-key">Employee Profit Share</span>
+<span class="criteria-val">5%</span>
+</div>
+</div>
+<div class="card card-3d reveal-right" style="transition-delay:0.45s;padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between">
+<div>
+<p style="font-size:11px;font-weight:600;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Alignment</p>
+<div style="padding:14px;background:rgba(126,200,160,0.08);border:1px solid rgba(126,200,160,0.2);border-radius:8px;margin-bottom:12px">
+<p style="font-size:13px;font-weight:600;color:#7ec8a0;margin-bottom:4px">Zero Management Fee</p>
+<p style="font-size:11px;color:var(--muted);font-weight:300">We only win when you do. No fees until returns are delivered.</p>
+</div>
+<div style="padding:14px;background:rgba(137,180,212,0.06);border:1px solid rgba(137,180,212,0.12);border-radius:8px">
+<p style="font-size:11px;color:var(--muted);font-weight:300">Capital reserves held at <span style="color:var(--blue-light);font-weight:500">3–5%</span> to buffer operations and growth capex</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 10: Investor Economics -->
+<!-- SLIDE 10: The Opportunity -->
 <div class="slide" data-slide="9">
 <div class="slide-inner">
-<div class="label reveal">Investor Economics</div>
-<h2 class="headline reveal" style="font-size:36px;margin-bottom:8px;transition-delay:0.1s">
-Illustrative <span class="hl">Deal Economics</span>
+<div class="label reveal">The Opportunity</div>
+<h2 class="headline reveal" style="font-size:36px;margin-bottom:6px;transition-delay:0.1s">
+Untapped <span class="hl">Upside</span> Hiding in Plain Sight
 </h2>
-<div class="reveal" style="transition-delay:0.15s;display:flex;gap:16px;justify-content:center;margin-bottom:24px;flex-wrap:wrap">
-<div style="padding:10px 20px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);border-radius:8px;text-align:center">
-<div style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;color:var(--blue-light)">$1.8M</div>
-<div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px">Acquisition</div>
+<div class="reveal" style="transition-delay:0.15s;text-align:center;margin-bottom:16px">
+<span style="display:inline-block;padding:6px 20px;border-radius:20px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-light)">Landscaping Industry CAGR: <strong>5.2%</strong> through 2029</span>
 </div>
-<div style="padding:10px 20px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);border-radius:8px;text-align:center">
-<div style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;color:var(--blue-light)">$600K</div>
-<div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px">EBITDA</div>
+<div style="display:flex;gap:16px;align-items:stretch">
+<div class="gap-col card card-3d reveal-left" style="transition-delay:0.2s;padding:20px">
+<p style="font-size:11px;font-weight:600;color:#e06b6b;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Current Gaps</p>
+<div class="gap-item"><span class="gap-icon-x">✕</span>No digital marketing or SEO</div>
+<div class="gap-item"><span class="gap-icon-x">✕</span>No Google Ads or paid campaigns</div>
+<div class="gap-item"><span class="gap-icon-x">✕</span>No CRM system in place</div>
+<div class="gap-item"><span class="gap-icon-x">✕</span>No field service platform</div>
+<div class="gap-item"><span class="gap-icon-x">✕</span>No formal estimating process</div>
+<div class="gap-item"><span class="gap-icon-x">✕</span>Hardscape clients not converted to maintenance</div>
 </div>
-<div style="padding:10px 20px;background:rgba(137,180,212,0.08);border:1px solid rgba(137,180,212,0.15);border-radius:8px;text-align:center">
-<div style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;color:var(--blue-light)">3.0x</div>
-<div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px">Multiple</div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 8px;gap:8px">
+<div style="width:2px;flex:1;background:linear-gradient(180deg,transparent,var(--blue),transparent)"></div>
+<div style="font-size:18px;color:var(--blue)">→</div>
+<div style="width:2px;flex:1;background:linear-gradient(180deg,transparent,var(--blue),transparent)"></div>
 </div>
-</div>
-<div class="grid-2" style="align-items:start">
-<div class="card reveal-left" style="transition-delay:0.2s;padding:28px">
-<h4 style="font-family:'Libre Baskerville',serif;font-size:15px;margin-bottom:20px">Capital Structure</h4>
-<div style="margin-bottom:14px">
-<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
-<span style="color:var(--muted)">Loan</span><span class="criteria-val" style="font-size:12px">43.9%</span>
-</div>
-<div class="econ-bar"><div class="econ-fill" data-width="43.9"></div></div>
-</div>
-<div style="margin-bottom:14px">
-<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
-<span style="color:var(--muted)">Co-Investor Equity</span><span class="criteria-val" style="font-size:12px">26.3%</span>
-</div>
-<div class="econ-bar"><div class="econ-fill" data-width="26.3"></div></div>
-</div>
-<div style="margin-bottom:14px">
-<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
-<span style="color:var(--muted)">Seller Rollover</span><span class="criteria-val" style="font-size:12px">17.6%</span>
-</div>
-<div class="econ-bar"><div class="econ-fill" data-width="17.6"></div></div>
-</div>
-<div>
-<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
-<span style="color:var(--muted)">Methodic Equity</span><span class="criteria-val" style="font-size:12px">12.2%</span>
-</div>
-<div class="econ-bar"><div class="econ-fill" data-width="12.2"></div></div>
+<div class="gap-col card card-3d reveal-right" style="transition-delay:0.3s;padding:20px">
+<p style="font-size:11px;font-weight:600;color:#7ec8a0;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Our Playbook</p>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Launch SEO + Google Ads from Month 1</div>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Install targeted paid campaigns</div>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Deploy CRM + automated follow-ups</div>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Implement Aspire/Jobber field platform</div>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Standardize pricing + estimating</div>
+<div class="gap-item" style="border-color:rgba(126,200,160,0.2)"><span class="gap-icon-check">✓</span>Convert hardscape clients → maintenance</div>
 </div>
 </div>
-<div class="card reveal-right" style="transition-delay:0.35s;padding:28px">
-<h4 style="font-family:'Libre Baskerville',serif;font-size:15px;margin-bottom:20px">Key Returns</h4>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-<div style="text-align:center;padding:16px;background:rgba(137,180,212,0.06);border-radius:10px;border:1px solid rgba(137,180,212,0.1)">
-<div style="font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--blue-light)"><span class="counter" data-target="29">0</span>%</div>
-<div style="font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1.5px">5-Year IRR</div>
-</div>
-<div style="text-align:center;padding:16px;background:rgba(137,180,212,0.06);border-radius:10px;border:1px solid rgba(137,180,212,0.1)">
-<div style="font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--blue-light)"><span class="counter" data-target="8">0</span>%</div>
-<div style="font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1.5px">Pref. Return</div>
-</div>
-<div style="text-align:center;padding:16px;background:rgba(137,180,212,0.06);border-radius:10px;border:1px solid rgba(137,180,212,0.1)">
-<div style="font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--blue-light)"><span class="counter" data-target="22">0</span>%</div>
-<div style="font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1.5px">Post-Payback Yield</div>
-</div>
-<div style="text-align:center;padding:16px;background:rgba(137,180,212,0.06);border-radius:10px;border:1px solid rgba(137,180,212,0.1)">
-<div style="font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--blue-light)">~<span class="counter" data-target="4.7" data-decimals="1">0</span>yr</div>
-<div style="font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1.5px">Payback Period</div>
+<div class="card reveal" style="transition-delay:0.5s;padding:12px 24px;text-align:center;margin-top:14px">
+<p style="font-size:12px;color:var(--muted);font-style:italic;font-weight:300;line-height:1.6">"Essential service businesses in the Micro-Lower Middle Market that implement digital marketing, modern systems, and hire aggressively will see outsized returns."</p>
 </div>
 </div>
-<div style="margin-top:16px;padding:14px;background:var(--bg3);border-radius:8px">
-<p style="font-size:11px;color:var(--muted);line-height:1.6;text-align:center">
-<span style="color:var(--blue-light);font-weight:500">Pre-payback:</span> Manager 30% / Co-Investors 70% &nbsp;&bull;&nbsp;
-<span style="color:var(--blue-light);font-weight:500">Post-payback:</span> Manager 60% / Co-Investors 40%
-</p>
 </div>
+
+<!-- SLIDE 11: Value Creation -->
+<div class="slide" data-slide="10">
+<div class="slide-inner">
+<div class="label reveal">Value Creation</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:6px;transition-delay:0.1s">
+Post-Acquisition <span class="hl">Growth Plan</span>
+</h2>
+<p class="sub-text reveal" style="margin-bottom:16px;transition-delay:0.15s;font-style:italic;font-size:14px">Three phases to systematic value creation</p>
+<div class="timeline-connector reveal" id="timelineConn" style="transition-delay:0.6s"></div>
+<div class="timeline-wrap reveal" style="transition-delay:0.2s;gap:12px">
+<div class="card card-3d timeline-phase reveal-left" style="transition-delay:0.25s">
+<div class="phase-num">PHASE 01 · MONTHS 1–6</div>
+<div class="phase-title">Stabilize &amp; Systematize</div>
+<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Install field service platform (Aspire/Jobber)</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Launch SEO + Google Ads campaigns</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Replace QuickBooks + Google Calendar</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Improve crew utilization &amp; job costing</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Formalize customer contracts</li>
+</ul>
+</div>
+<div class="card card-3d timeline-phase reveal" style="transition-delay:0.4s">
+<div class="phase-num">PHASE 02 · MONTHS 6–18</div>
+<div class="phase-title">Market &amp; Convert</div>
+<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Grow recurring revenue 30% → 50%+</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Convert hardscape clients to maintenance</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Build digital presence &amp; reviews</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Systematize estimating process</li>
+</ul>
+</div>
+<div class="card card-3d timeline-phase reveal-right" style="transition-delay:0.55s">
+<div class="phase-num">PHASE 03 · YEARS 2–5</div>
+<div class="phase-title">Scale &amp; Expand</div>
+<ul style="font-size:11px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Add landscape design services</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Improve crew utilization &amp; job costing</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Expand commercial snow contracts</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Route density into adjacent towns</li>
+<li style="padding-left:12px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Pursue tuck-in acquisition opportunities</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 
-<!-- SLIDE 11: Closing -->
-<div class="slide" data-slide="10">
+<!-- SLIDE 12: Downside Protection -->
+<div class="slide" data-slide="11">
+<div class="slide-inner">
+<div class="label reveal">Downside Protection</div>
+<h2 class="headline reveal" style="font-size:38px;margin-bottom:28px;transition-delay:0.1s">
+Risk <span class="hl">Mitigation</span> Strategy
+</h2>
+<div class="grid-2">
+<div class="card card-3d risk-card reveal-scale" style="transition-delay:0.2s">
+<div class="risk-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+</div>
+<h4 style="font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;margin-bottom:10px">Owner Transition Risk</h4>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Seller committed to 6–12 month advisory role</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>20% rollover equity aligns seller incentives</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Dedicated $100K+ operator hired Day 1</li>
+</ul>
+</div>
+<div class="card card-3d risk-card reveal-scale" style="transition-delay:0.28s">
+<div class="risk-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<h4 style="font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;margin-bottom:10px">Revenue Diversification</h4>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>No single customer exceeds 5% of revenue</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>80–100 active maintenance clients</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Mix: residential, commercial, and snow</li>
+</ul>
+</div>
+<div class="card card-3d risk-card reveal-scale" style="transition-delay:0.36s">
+<div class="risk-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+</div>
+<h4 style="font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;margin-bottom:10px">Seasonal Cash Flow</h4>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Snow removal fills winter revenue gap</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Maintenance revenue continues year-round</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>$125K working capital reserve buffer</li>
+</ul>
+</div>
+<div class="card card-3d risk-card reveal-scale" style="transition-delay:0.44s">
+<div class="risk-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<h4 style="font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;margin-bottom:10px">Asset Protection</h4>
+<ul style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.8;list-style:none;padding:0">
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>$1.5M in FF&amp;E provides tangible floor</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>Equipment liquidation materially de-risks deal</li>
+<li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--blue)">&bull;</span>20-year operating track record reduces uncertainty</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 13: Closing -->
+<div class="slide" data-slide="12">
 <div class="slide-inner" style="text-align:center">
 <img class="title-chevron reveal-scale" id="closingChevron" src="" alt="Methodic" style="width:64px;height:64px;">
 <h2 class="headline shimmer-text reveal" style="font-size:clamp(36px,5vw,54px);margin-bottom:16px;transition-delay:0.15s">
@@ -1064,7 +1391,7 @@ const PHOTOS = {
 
 // ========== STATE ==========
 let currentSlide = 0;
-const totalSlides = 11;
+const totalSlides = 13;
 let isAnimating = false;
 let touchStartX = 0;
 
@@ -1072,7 +1399,7 @@ let touchStartX = 0;
 document.addEventListener('DOMContentLoaded', () => {
   // Set chevron images
   document.querySelectorAll('.title-chevron, #logoImg, #closingChevron').forEach(img => {
-    img.src = CHEVRON_SRC;
+    img.src = 'METHODIC LOGO WHITE (2).png';
   });
 
 // Set all team photos
@@ -1173,6 +1500,26 @@ function animateSlide(index) {
       bar.style.width = bar.dataset.width + '%';
     }, 400 + i * 150);
   });
+
+  // Animate bar charts
+  const bars = slide.querySelectorAll('.bar[data-h]');
+  bars.forEach((bar, i) => {
+    const h = parseFloat(bar.getAttribute('data-h'));
+    setTimeout(() => {
+      bar.style.height = h + '%';
+      bar.style.transform = 'scaleY(1)';
+    }, 400 + i * 80);
+  });
+  // Animate split bars
+  const seg1 = slide.querySelector('#seg1');
+  const seg1b = slide.querySelector('#seg1b');
+  const seg2 = slide.querySelector('#seg2');
+  const seg2b = slide.querySelector('#seg2b');
+  if(seg1){setTimeout(()=>{seg1.style.width='70%';seg1b.style.width='30%';},500);}
+  if(seg2){setTimeout(()=>{seg2.style.width='30%';seg2b.style.width='70%';},600);}
+  // Animate timeline connector
+  const conn = slide.querySelector('.timeline-connector');
+  if(conn){setTimeout(()=>{conn.classList.add('show');},600);}
 
   // Show/hide fixed logo
   const logo = document.getElementById('logoFixed');
